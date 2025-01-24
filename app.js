@@ -8,18 +8,7 @@ function sortear() {
         }
         mostrarNaTela([...numerosSorteados]);
 
-        // const numerosSorteados = [];
-        // let numeroAleatorio;
-        // for (let i = 0; i < quantidadeDeNumeros; i++) {
-        //     numeroAleatorio = gerarNumeroAleatorio();
-        //     while (numerosSorteados.includes(numeroAleatorio)) {
-        //         numeroAleatorio = gerarNumeroAleatorio();
-        //     }
-        //     numerosSorteados.push(numeroAleatorio);
-        // }
-        // mostrarNaTela(numerosSorteados);
-
-        habilitarBotaoReiniciar();
+        alterarStatusBotoes(botaoReiniciar, botaoSortear);
     } else {
         alert("Os valores inseridos não são válidos:\n - Todos devem ser maiores do que 1.\n - A quantidade deve ser maior que o intervalo.\n - O número final deve ser maior que o número inicial.");
     }
@@ -36,18 +25,11 @@ function validarDados() {
     return validado;
 }
 
-function habilitarBotaoReiniciar() {
-    botaoReiniciar.classList.replace("container__botao-desabilitado", "container__botao");
-    botaoReiniciar.disabled = false;
-    botaoSortear.classList.replace("container__botao", "container__botao-desabilitado");
-    botaoSortear.disabled = true;
-}
-
-function habilitarBotaoSortear() {
-    botaoSortear.classList.replace("container__botao-desabilitado", "container__botao");
-    botaoSortear.disabled = false;
-    botaoReiniciar.classList.replace("container__botao", "container__botao-desabilitado");
-    botaoReiniciar.disabled = true;
+function alterarStatusBotoes(botaoHabilitado, botaoDesabilitado) {
+    botaoHabilitado.classList.replace("container__botao-desabilitado", "container__botao");
+    botaoHabilitado.disabled = false;
+    botaoDesabilitado.classList.replace("container__botao", "container__botao-desabilitado");
+    botaoDesabilitado.disabled = true;
 }
 
 function coletarDados() {
@@ -64,7 +46,7 @@ function reiniciar() {
     inputDe.value = "";
     inputAte.value = "";
     resultado.textContent = "Números sorteados:  nenhum até agora";
-    habilitarBotaoSortear();
+    alterarStatusBotoes(botaoSortear, botaoReiniciar);
 }
 
 function gerarNumeroAleatorio() {
