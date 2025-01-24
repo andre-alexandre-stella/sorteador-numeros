@@ -1,6 +1,6 @@
 function sortear() {
     if (validarDados()) {
-        quantidadeDeNumeros = coletarDados()[0];
+        let quantidadeDeNumeros = coletarDados()[0];
 
         const numerosSorteados = new Set();
         while (numerosSorteados.size < quantidadeDeNumeros) {
@@ -10,6 +10,7 @@ function sortear() {
 
 
         // const numerosSorteados = [];
+        // let numeroAleatorio;
         // while (numerosSorteados.length < quantidadeDeNumeros) {
         //     numeroAleatorio = gerarNumeroAleatorio();
         //     if(!numerosSorteados.includes(numeroAleatorio)){
@@ -69,8 +70,7 @@ function reiniciar() {
 function gerarNumeroAleatorio() {
     numeroInicial = coletarDados()[1];
     numeroFinal = coletarDados()[2];
-    let numeroAleatorio = Math.round((Math.random() * (numeroFinal - numeroInicial) + numeroInicial));
-    return numeroAleatorio;
+    return Math.round((Math.random() * (numeroFinal - numeroInicial) + numeroInicial));
 }
 
 function mostrarNaTela(numerosSorteados) {
@@ -79,7 +79,6 @@ function mostrarNaTela(numerosSorteados) {
         mensagem += `${numerosSorteados[i]}, `;
     }
     mensagem += `${numerosSorteados[numerosSorteados.length - 1]}.`;
-    console.log(mensagem);
     resultado.textContent = mensagem;
 }
 
