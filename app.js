@@ -57,6 +57,7 @@ function gerarNumeroAleatorio() {
 
 function mostrarNaTela(numerosSorteados) {
     let mensagem = numerosSorteados.length > 1 ? "Números sorteados: " : "Número sorteado: ";
+    numerosSorteados = numerosSorteados.sort((a, b) => a - b);
     resultado.textContent = mensagem + numerosSorteados.join(", ");
 }
 
