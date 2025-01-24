@@ -10,7 +10,7 @@ function sortear() {
 
         alterarStatusBotoes(botaoReiniciar, botaoSortear);
     } else {
-        alert("Os valores inseridos não são válidos:\n - Todos devem ser maiores do que 1.\n - A quantidade deve ser maior que o intervalo.\n - O número final deve ser maior que o número inicial.");
+        mostrarNaTela();
     }
 }
 
@@ -55,10 +55,15 @@ function gerarNumeroAleatorio() {
     return Math.round((Math.random() * (numeroFinal - numeroInicial) + numeroInicial));
 }
 
-function mostrarNaTela(numerosSorteados) {
-    let mensagem = numerosSorteados.length > 1 ? "Números sorteados: " : "Número sorteado: ";
-    numerosSorteados = numerosSorteados.sort((a, b) => a - b);
-    resultado.textContent = mensagem + numerosSorteados.join(", ");
+function mostrarNaTela(numerosSorteados = []) {
+    if (numerosSorteados.length === 0) {
+        resultado.innerHTML = "Os valores inseridos não são válidos:<br> - Todos devem ser maiores do que 1.<br> - A quantidade deve ser maior que o intervalo.<br> - O número final deve ser maior que o número inicial."
+    } else {
+        numerosSorteados = [...numerosSorteados];
+        let mensagem = numerosSorteados.length > 1 ? "Números sorteados: " : "Número sorteado: ";
+        numerosSorteados = numerosSorteados.sort((a, b) => a - b);
+        resultado.textContent = mensagem + numerosSorteados.join(", ");
+    }
 }
 
 const botaoSortear = document.getElementById("btn-sortear");
