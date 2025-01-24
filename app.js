@@ -7,18 +7,7 @@ function sortear() {
             numerosSorteados.add(gerarNumeroAleatorio());
         }
         mostrarNaTela([...numerosSorteados]);
-
-
-        // const numerosSorteados = [];
-        // let numeroAleatorio;
-        // while (numerosSorteados.length < quantidadeDeNumeros) {
-        //     numeroAleatorio = gerarNumeroAleatorio();
-        //     if(!numerosSorteados.includes(numeroAleatorio)){
-        //         numerosSorteados.push(numeroAleatorio);
-        //     }
-        // }
-        // mostrarNaTela(numerosSorteados);
-
+        
         habilitarBotaoReiniciar();
     } else {
         alert("Os valores inseridos não são válidos:\n - Todos devem ser maiores do que 1.\n - A quantidade deve ser maior que o intervalo.\n - O número final deve ser maior que o número inicial.");
@@ -75,11 +64,7 @@ function gerarNumeroAleatorio() {
 
 function mostrarNaTela(numerosSorteados) {
     let mensagem = numerosSorteados.length > 1 ? "Números sorteados: " : "Número sorteado: ";
-    for (let i = 0; i < (numerosSorteados.length - 1); i++) {
-        mensagem += `${numerosSorteados[i]}, `;
-    }
-    mensagem += `${numerosSorteados[numerosSorteados.length - 1]}.`;
-    resultado.textContent = mensagem;
+    resultado.textContent = mensagem + numerosSorteados.join(", "); 
 }
 
 const botaoSortear = document.getElementById("btn-sortear");
