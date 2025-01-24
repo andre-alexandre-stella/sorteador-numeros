@@ -83,11 +83,11 @@ function mostrarNaTela(numerosSorteados) {
     resultado.textContent = mensagem;
 }
 
-const botaoSortear = document.querySelector("#btn-sortear");
-const botaoReiniciar = document.querySelector("#btn-reiniciar");
+const botaoSortear = document.getElementById("btn-sortear");
+const botaoReiniciar = document.getElementById("btn-reiniciar");
 
-const inputQuantidade = document.querySelector("#quantidade");
-const inputDe = document.querySelector("#de");
-const inputAte = document.querySelector("#ate");
+const inputQuantidade = document.getElementById("quantidade");
+const inputDe = document.getElementById("de");
+const inputAte = document.getElementById("ate");
 const resultado = document.querySelector("#resultado label");
 
